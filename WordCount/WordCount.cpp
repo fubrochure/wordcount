@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 			if (a_flag) {
 				printf("%d %d %d ", result.code_count, result.comment_count, result.empty_count);
 			}
-			printf("%s\n", argv[i]);
+			cout << files[j] << endl;
 		}
 	}
 }
