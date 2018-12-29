@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string.h>
 #include "WC.h"
+#include"FilesFound.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
 		PrintUsage();
 	}
 	int param_count = 0;
-	bool c_flag = false, w_flag = false, l_flag = false, a_flag = false;
+	bool c_flag = false, w_flag = false, l_flag = false, a_flag = false, s_flag = false;
 	for (int i = 0; i < argc - 1; i++) {
 		if (argv[i + 1][0] == '-') {
 			param_count++;
@@ -31,6 +32,7 @@ int main(int argc, char *argv[])
 			case 'w': w_flag = true; break;
 			case 'a': a_flag = true; break;
 			case 'l': l_flag = true; break;
+			case 's': s_flag = true; break;
 			default:
 				cout << "Unsupported arg!" << endl;
 				exit(1);
@@ -46,27 +48,31 @@ int main(int argc, char *argv[])
 	WC wc(c_flag = c_flag, w_flag = w_flag, l_flag = l_flag, a_flag = a_flag);
 	int w_total = 0, c_total = 0, l_total = 0;
 	Result result;
+	FilesFound filesfound(s_flag);
 	for (int i = param_count + 1; i < argc; i++) {
 		FILE *f;
-		fopen_s(&f, argv[i], "r");
-		if (f == NULL) {
-			cout << "open file failed" << endl;
-			exit(1);
+		vector<string> files = filesfound.find_files(string(argv[i]));
+		for (int j = 0; j < files.size();j++) {
+			fopen_s(&f, files[j].c_str(), "r");
+			if (f == NULL) {
+				cout << "open file failed" << endl;
+				exit(1);
+			}
+			result = wc.Tell(f);
+			if (l_flag) {
+				printf("%d ", result.line_count);
+			}
+			if (w_flag) {
+				printf("%d ", result.word_count);
+			}
+			if (c_flag) {
+				printf("%d ", result.char_count);
+			}
+			if (a_flag) {
+				printf("%d %d %d ", result.code_count, result.comment_count, result.empty_count);
+			}
+			printf("%s\n", argv[i]);
 		}
-		result = wc.Tell(f);
-		if (l_flag) {
-			printf("%d ", result.line_count);
-		}
-		if (w_flag) {
-			printf("%d ", result.word_count);
-		}
-		if (c_flag) {
-			printf("%d ", result.char_count);
-		}
-		if (a_flag) {
-			printf("%d %d %d ", result.code_count, result.comment_count, result.empty_count);
-		}
-		printf("%s\n", argv[i]);
 	}
 }
 
