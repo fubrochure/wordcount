@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QtGuiApplication1Class</class>
+ <widget class="QMainWindow" name="QtGuiApplication1Class">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>897</width>
+    <height>705</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>WordCount</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="h_layout_char">
+        <item>
+         <widget class="QLabel" name="label_char">
+          <property name="text">
+           <string>Number of character:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="char_count">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="h_layout_word">
+        <item>
+         <widget class="QLabel" name="label_word">
+          <property name="text">
+           <string>Number of word:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="word_count">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="h_layout_line">
+        <item>
+         <widget class="QLabel" name="label_line">
+          <property name="text">
+           <string>Number of line:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="line_count">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="h_layout_codeline">
+        <item>
+         <widget class="QLabel" name="label_codeline">
+          <property name="text">
+           <string>Number of code line:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="codeline_count">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="h_layout_commentline">
+        <item>
+         <widget class="QLabel" name="label_commentline">
+          <property name="text">
+           <string>Number of comment line:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="commnetline_count">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="h_layout_emptyline">
+        <item>
+         <widget class="QLabel" name="label_emptyline">
+          <property name="text">
+           <string>Number of empty line:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="emptyline_count">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="v_layout_chosefile">
+        <item>
+         <widget class="QPushButton" name="chose_file_button">
+          <property name="text">
+           <string>chose file</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>897</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="QtGuiApplication1.qrc"/>
+ </resources>
+ <connections/>
+</ui>

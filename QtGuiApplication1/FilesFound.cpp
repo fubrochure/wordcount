@@ -1,7 +1,5 @@
-#include "pch.h"
+#include "stdafx.h"
 #include "FilesFound.h"
-
-
 
 FilesFound::FilesFound(bool s_flag)
 	:s_flag(s_flag){}
@@ -80,4 +78,3 @@ vector<string> FilesFound::find_files(string input_name)
 	}
 	return files;
 }
-
