@@ -52,7 +52,7 @@ vector<string> FilesFound::find_files(string input_name)
 {
 	vector<string> files;
 	fs::path root_path = fs::current_path();
-	if (s_flag) {
+	if (!s_flag) {
 		fs::directory_iterator end;
 		for (fs::directory_iterator iter(root_path); iter != end; iter++) {
 			if (fs::is_directory(iter->path())) {

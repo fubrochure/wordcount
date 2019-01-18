@@ -4,12 +4,20 @@
 #include "pch.h"
 #include <iostream>
 #include "WC.h"
-#include"FilesFound.h"
+#include "FilesFound.h"
+#include <QTextStream>
 
 using namespace std;
 
+QTextStream& qStdOut()
+{
+	static QTextStream ts(stdout);
+	return ts;
+}
+
 void PrintUsage() {
 	cout << "Usage: wc.exe [paramter] [file]" << endl;
+	//qStdOut().flush();
 	exit(1);
 }
 
@@ -32,6 +40,7 @@ int main(int argc, char *argv[])
 			case 'x': x_flag = true; break;
 			default:
 				cout << "Unsupported arg!" << endl;
+				//qStdOut().flush();
 				exit(1);
 			}
 		}
@@ -63,22 +72,24 @@ int main(int argc, char *argv[])
 				fopen_s(&f, files[j].c_str(), "r");
 				if (f == NULL) {
 					cout << "open file failed" << endl;
+					//qStdOut().flush();
 					exit(1);
 				}
 				result = wc.Tell(f);
 				if (l_flag) {
-					printf("%d ", result.line_count);
+					cout << result.line_count<< endl;
 				}
 				if (w_flag) {
-					printf("%d ", result.word_count);
+					cout << result.word_count<<endl;
 				}
 				if (c_flag) {
-					printf("%d ", result.char_count);
+					cout << result.char_count<< endl;
 				}
 				if (a_flag) {
-					printf("%d %d %d ", result.code_count, result.comment_count, result.empty_count);
+					cout << result.code_count<<' '<< result.comment_count<<' '<<result.empty_count<< endl;
 				}
-				cout << files[j] << endl;
+				cout << files[j].c_str() << endl;
+				cout.flush();
 			}
 		}
 	}
